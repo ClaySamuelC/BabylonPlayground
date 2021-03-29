@@ -7,6 +7,9 @@ const createScene =  () => {
   const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0));
 
   const box = BABYLON.MeshBuilder.CreateBox("box", {});
+  const ground = BABYLON.MeshBuilder.CreateGround("ground", {width:10, height:10});
+  
+  box.position.y = 0.5;
 
   return scene;
 };
