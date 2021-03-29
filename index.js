@@ -6,10 +6,14 @@ const createScene =  () => {
 
   const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0));
 
-  const box = BABYLON.MeshBuilder.CreateBox("box", {});
   const ground = BABYLON.MeshBuilder.CreateGround("ground", {width:10, height:10});
-  
+  const box = BABYLON.MeshBuilder.CreateBox("box", {});
+  const roof = BABYLON.MeshBuilder.CreateCylinder("roof", {diameter: 1.3, height: 1.2, tessellation: 3});
+
   box.position.y = 0.5;
+  roof.scaling.x = 0.75;
+  roof.rotation.z = Math.PI / 2;
+  roof.position.y = 1.22;
 
   return scene;
 };
