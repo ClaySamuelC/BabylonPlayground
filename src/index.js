@@ -15,6 +15,13 @@ const createScene = () => {
 };
 
 // Build Functions
+const buildHouse = () => {
+  const box = buildBox();
+  const roof = buildRoof();
+
+  return BABYLON.Mesh.MergeMeshes([box, roof], true, false, null, false, true);
+}
+
 const buildGround = () => {
   const ground = BABYLON.MeshBuilder.CreateGround("ground", {width:10, height:10});
 
