@@ -8,8 +8,7 @@ const createScene = () => {
 
   // world objects
   const ground = buildGround();
-  const box = buildBox();
-  const roof = buildRoof();
+  const house = buildHouse();
 
   return scene;
 };
