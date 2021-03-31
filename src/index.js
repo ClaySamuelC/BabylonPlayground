@@ -11,12 +11,6 @@ const createScene = () => {
   const box = buildBox();
   const roof = buildRoof();
 
-  // world object transformations
-  box.position.y = 0.5;
-  roof.scaling.x = 0.75;
-  roof.rotation.z = Math.PI / 2;
-  roof.position.y = 1.22;
-
   return scene;
 };
 
@@ -40,6 +34,8 @@ const buildBox = () => {
 
   box.material = boxMat;
 
+  box.position.y = 0.5;
+
   return box;
 };
 
@@ -50,6 +46,10 @@ const buildRoof = () => {
   roofMat.diffuseTexture = new BABYLON.Texture("https://assets.babylonjs.com/environments/roof.jpg");
 
   roof.material = roofMat;
+
+  roof.scaling.x = 0.75;
+  roof.rotation.z = Math.PI / 2;
+  roof.position.y = 1.22;
 
   return roof;
 };
