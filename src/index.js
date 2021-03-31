@@ -8,6 +8,13 @@ const createScene = () => {
 
   // world objects
   const ground = buildGround();
+  const village = buildVillage();
+
+  return scene;
+};
+
+// Build Functions
+const buildVillage = () => {
   const smallHouse = buildHouse();
   const wideHouse = buildHouse(true);
 
@@ -24,10 +31,9 @@ const createScene = () => {
     }
   }
 
-  return scene;
-};
+  return houses;
+}
 
-// Build Functions
 const buildHouse = (isWide = false) => {
   const box = isWide ? buildBoxWide() : buildBoxRegular();
   const roof = buildRoof(isWide);
