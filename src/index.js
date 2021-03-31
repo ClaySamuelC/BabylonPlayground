@@ -38,8 +38,8 @@ const buildBox = () => {
   faceUV = [
     new BABYLON.Vector4(0.5, 0.0, 0.75, 1.0), // back
     new BABYLON.Vector4(0.0, 0.0, 0.25, 1.0), // front
-    new BABYLON.Vector4(0.25, 0, 0.5, 1.0), // right
-    new BABYLON.Vector4(0.75, 0, 1.0, 1.0) // left
+    new BABYLON.Vector4(0.25, 0.0, 0.5, 1.0), // right
+    new BABYLON.Vector4(0.75, 0.0, 1.0, 1.0) // left
   ];
 
   const box = BABYLON.MeshBuilder.CreateBox("box", {faceUV: faceUV, wrap: true});
