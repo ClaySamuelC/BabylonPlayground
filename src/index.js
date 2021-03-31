@@ -8,7 +8,21 @@ const createScene = () => {
 
   // world objects
   const ground = buildGround();
-  const house = buildHouse(true);
+  const smallHouse = buildHouse();
+  const wideHouse = buildHouse(true);
+
+  const houses = [];
+  for (let i = 0; i < 8; i++) {
+    if (i < 5) {
+      houses[i] = smallHouse.createInstance("house" + i);
+      houses[i].position.x = (i - 2.5 + 0.5) * 1.3;
+      houses[i].position.z = -2;
+    } else {
+      houses[i] = wideHouse.createInstance("house" + i);
+      houses[i].position.x = ((i - 5) - 1.5 + 0.5) * 2.5
+      houses[i].position.z = 2;
+    }
+  }
 
   return scene;
 };
