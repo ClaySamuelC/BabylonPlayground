@@ -33,9 +33,16 @@ const buildGround = () => {
 
 const buildBox = () => {
   const boxMat = new BABYLON.StandardMaterial("boxmat");
-  boxMat.diffuseTexture = new BABYLON.Texture("https://www.babylonjs-playground.com/textures/floor.png");
+  boxMat.diffuseTexture = new BABYLON.Texture("https://assets.babylonjs.com/environments/cubehouse.png");
 
-  const box = BABYLON.MeshBuilder.CreateBox("box", {});
+  faceUV = [
+    new BABYLON.Vector4(0.5, 0.0, 0.75, 1.0), // back
+    new BABYLON.Vector4(0.0, 0.0, 0.25, 1.0), // front
+    new BABYLON.Vector4(0.25, 0, 0.5, 1.0), // right
+    new BABYLON.Vector4(0.75, 0, 1.0, 1.0) // left
+  ];
+
+  const box = BABYLON.MeshBuilder.CreateBox("box", {faceUV: faceUV, wrap: true});
   box.material = boxMat;
 
   box.position.y = 0.5;
