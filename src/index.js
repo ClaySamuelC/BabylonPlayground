@@ -69,7 +69,7 @@ const buildBoxWide = () => {
   return box;
 };
 
-const buildRoof = (isWide = false) => {
+const buildRoof = (isWide) => {
   const roofMat = new BABYLON.StandardMaterial("roofMat");
   roofMat.diffuseTexture = new BABYLON.Texture("https://assets.babylonjs.com/environments/roof.jpg");
 
