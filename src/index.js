@@ -31,6 +31,12 @@ const buildVillage = () => {
     }
   }
 
+  smallHouse.rotation.y = Math.PI / 2;
+  smallHouse.position.x = -4;
+
+  wideHouse.rotation.y = Math.PI / 2;
+  wideHouse.position.x = 4;
+
   return houses;
 }
 
