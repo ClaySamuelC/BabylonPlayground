@@ -22,22 +22,20 @@ const buildHouse = () => {
 }
 
 const buildGround = () => {
-  const ground = BABYLON.MeshBuilder.CreateGround("ground", {width:10, height:10});
-
   const groundMat = new BABYLON.StandardMaterial("groundMat");
   groundMat.diffuseColor = new BABYLON.Color3.Green();
 
+  const ground = BABYLON.MeshBuilder.CreateGround("ground", {width:10, height:10});
   ground.material = groundMat;
 
   return ground;
 };
 
 const buildBox = () => {
-  const box = BABYLON.MeshBuilder.CreateBox("box", {});
-
   const boxMat = new BABYLON.StandardMaterial("boxmat");
   boxMat.diffuseTexture = new BABYLON.Texture("https://www.babylonjs-playground.com/textures/floor.png");
 
+  const box = BABYLON.MeshBuilder.CreateBox("box", {});
   box.material = boxMat;
 
   box.position.y = 0.5;
@@ -46,11 +44,10 @@ const buildBox = () => {
 };
 
 const buildRoof = () => {
-  const roof = BABYLON.MeshBuilder.CreateCylinder("roof", {diameter: 1.3, height: 1.2, tessellation: 3});
-
   const roofMat = new BABYLON.StandardMaterial("roofMat");
   roofMat.diffuseTexture = new BABYLON.Texture("https://assets.babylonjs.com/environments/roof.jpg");
 
+  const roof = BABYLON.MeshBuilder.CreateCylinder("roof", {diameter: 1.3, height: 1.2, tessellation: 3});
   roof.material = roofMat;
 
   roof.scaling.x = 0.75;
