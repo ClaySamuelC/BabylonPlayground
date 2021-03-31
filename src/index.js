@@ -7,9 +7,9 @@ const createScene =  () => {
   const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0));
 
   // world objects
-  const ground = BABYLON.MeshBuilder.CreateGround("ground", {width:10, height:10});
-  const box = BABYLON.MeshBuilder.CreateBox("box", {});
-  const roof = BABYLON.MeshBuilder.CreateCylinder("roof", {diameter: 1.3, height: 1.2, tessellation: 3});
+  const ground = buildGround();
+  const box = buildBox();
+  const roof = buildRoof();
 
   // world object transformations
   box.position.y = 0.5;
@@ -17,22 +17,41 @@ const createScene =  () => {
   roof.rotation.z = Math.PI / 2;
   roof.position.y = 1.22;
 
-  // materials
-  const groundMat = new BABYLON.StandardMaterial("groundMat");
-  const roofMat = new BABYLON.StandardMaterial("roofMat");
-  const boxMat = new BABYLON.StandardMaterial("boxMat");
+  return scene;
+};
 
-  // material transformations
+// Build Functions
+const buildGround = () => {
+  const ground = BABYLON.MeshBuilder.CreateGround("ground", {width:10, height:10});
+
+  const groundMat = new BABYLON.StandardMaterial("groundMat");
   groundMat.diffuseColor = new BABYLON.Color3.Green();
-  roofMat.diffuseTexture = new BABYLON.Texture("https://assets.babylonjs.com/environments/roof.jpg");
+
+  ground.material = groundMat;
+
+  return ground;
+};
+
+const buildBox = () => {
+  const box = BABYLON.MeshBuilder.CreateBox("box", {});
+
+  const boxMat = new BABYLON.StandardMaterial("boxmat");
   boxMat.diffuseTexture = new BABYLON.Texture("https://www.babylonjs-playground.com/textures/floor.png");
 
-  // attach materials to world objects
-  ground.material = groundMat;
-  roof.material = roofMat;
   box.material = boxMat;
 
-  return scene;
+  return box;
+};
+
+const buildRoof = () => {
+  const roof = BABYLON.MeshBuilder.CreateCylinder("roof", {diameter: 1.3, height: 1.2, tessellation: 3});
+
+  const roofMat = new BABYLON.StandardMaterial("roofMat");
+  roofMat.diffuseTexture = new BABYLON.Texture("https://assets.babylonjs.com/environments/roof.jpg");
+
+  roof.material = roofMat;
+
+  return roof;
 };
 
 const canvas = document.getElementById("renderCanvas"); // Get the canvas element
